@@ -22,7 +22,6 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req, ball_chaser:
         // Publish angles to drive the robot
         motor_command_publisher.publish(motor_command); 
 
-        ros::  Duration(3).sleep();
         
         res.msg_feedback = "LinearX set: " + std::to_string(req.linear_x) + " angularZ set: " + std::to_string(req.angular_z);
         ROS_INFO_STREAM(res.msg_feedback);

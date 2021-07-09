@@ -96,9 +96,13 @@
     </sensor>
   </gazebo>
   <gazebo reference='left_wheel'>
-      <material name = ''>
-        <color rgba="0.75294 0.75294 0.75294 1"/>
-      </material>
+      <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference='right_wheel'>
+      <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference='chassis'>
+      <material>Gazebo/Yellow</material>
   </gazebo>
 
 
