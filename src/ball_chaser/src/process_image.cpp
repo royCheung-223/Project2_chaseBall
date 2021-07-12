@@ -30,9 +30,9 @@ void process_image_callback(const sensor_msgs::Image img)
     int countL = 0;
     int countR = 0;
     int countM = 0;
-    for(int i = 0;i < img.height * img.step;i += 3)
+    for(int i = 0;i < img.height * img.step; i += 3)
     {
-     int position = (i % 3) / 3;
+     int position = (i % img.step) / 3;
    
      if ((img.data[i] == white_pixel) && (img.data[i+1] == white_pixel) && (img.data[i+2] == white_pixel))
      {
@@ -52,11 +52,11 @@ void process_image_callback(const sensor_msgs::Image img)
     }
     if ((countL > countR) && (countL > countM))
     {
-     drive_robot(0.0, -0.5);  //turn right
+     drive_robot(0.0, 0.5);  //turn left
     }
     else if ((countR > countL) && (countR > countM))
     {
-     drive_robot(0.0, 0.5);   //turn left
+     drive_robot(0.0, -0.5);   //turn right
     }
     else if ((countM > countL) && (countR < countM))
     {
